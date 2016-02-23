@@ -21,7 +21,7 @@
 	(let [diff (- actual est)
 		  abs-diff (abs diff)
 		  pct-diff (/ abs-diff actual)]
-		(double pct-diff)))
+		pct-diff))
 
 (defn calc-precision-scale
 	[precision]
@@ -39,7 +39,7 @@
 	[square old-est]
 	(let [dividend (/ square old-est)
 		  new-est (/ (+ old-est dividend) 2)]
-		  (double new-est)))
+		  new-est))
 
 (defn precision-est
 	[square pct-precision]
@@ -52,7 +52,7 @@
 
 (defn -main [& args]
   (let [square 12
-  		precision 0.01
+  		precision 0.000000000000000001
   		final-root-est (precision-est square precision)
   		final-square-est (* final-root-est final-root-est)
   		square-error (abs-pct-error square final-square-est)]
