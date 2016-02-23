@@ -17,8 +17,7 @@
 	[square pct-precision]
 	(loop [new-est (sqrt-est square (/ square 2))]
 		(let [square-est (* new-est new-est)
-			  square-diff (- square-est square)
-			  error (/ square-diff square-est)]
+			  error (abs-pct-error square square-est)]
 			  (if (<= error pct-precision)
 				new-est
 				(recur (sqrt-est square new-est))))))
