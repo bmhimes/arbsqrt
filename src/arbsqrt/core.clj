@@ -16,6 +16,14 @@
 		  pct-diff (/ abs-diff actual)]
 		(double pct-diff)))
 
+(defn fmt-pct
+	[pct & {:keys [sci-dec]
+		    :or {sci-dec 1}}]
+	(let [scaled-pct (* pct 100.0)]
+		(if (< pct 0.0001)
+			(format (clojure.string/join ["%1." sci-dec "e%%"]) scaled-pct)
+			(format "%2.2f%%" scaled-pct))))
+
 (defn sqrt-est
 	[square old-est]
 	(let [dividend (/ square old-est)

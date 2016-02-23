@@ -18,10 +18,15 @@
 		(is (= 1 (java.lang.Math/abs -1))))
 
 (deftest utility-fns
-  (testing "Testing utility functions."
+  (testing "Testing error functions."
   	(is (= (abs-pct-error 100 101) 0.01))
   	(is (= (abs-pct-error 50 100) 1.0))
-  	(is (= (abs-pct-error 100 50) 0.5))))
+  	(is (= (abs-pct-error 100 50) 0.5)))
+  (testing "Testing formatting functions."
+  	(is (= "100.00%" (fmt-pct 1.0)))
+  	(is (= "1.00%" (fmt-pct 0.01)))
+  	(is (= "0.01%" (fmt-pct 0.0001)))
+  	(is (= "1.0e-03%" (fmt-pct 0.00001)))))
 
 (deftest core-fns
   (testing "Testing square estimate iteration."
