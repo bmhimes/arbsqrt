@@ -2,7 +2,10 @@
 
 (defn abs-pct-error
 	[actual est]
-	(double (/ (Math/abs (- actual est)) actual)))
+	(let [diff (- actual est)
+		  abs-diff (java.lang.Math/abs diff)
+		  pct-diff (/ abs-diff actual)]
+		(double pct-diff)))
 
 (defn sqrt-est
 	[square old-est]
