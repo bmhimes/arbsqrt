@@ -25,5 +25,6 @@
 (defn -main [& args]
   (println "Hello, World!")
   (let [square 12
-  		precision 0.01]
-  		(println (precision-est square precision))))
+  		precision 0.01
+  		final-est (precision-est square precision)]
+  		(println final-est)))
