@@ -47,7 +47,7 @@
   		square-error (abs-pct-error square final-square-est)]
   		(do 
   			(println "Square: " square)
-  			(println "Precision: " precision)
+  			(println "Precision: " (fmt-pct precision))
   			(println "Final root estimate: " final-root-est)
   			(println "Final square estimate: " final-square-est)
-  			(println "Error: " square-error))))
+  			(println "Error: " (fmt-pct square-error)))))
