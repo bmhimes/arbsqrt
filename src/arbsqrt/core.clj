@@ -18,7 +18,7 @@
 			  error (/ square-diff square-est)]
 			  (if (<= error pct-precision)
 				new-est
-				(recur new-est)))))
+				(recur (sqrt-est square new-est))))))
 
 (defn -main [& args]
   (println "Hello, World!")
