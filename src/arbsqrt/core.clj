@@ -26,5 +26,5 @@
   (println "Hello, World!")
   (let [square 12
   		precision 0.01
-  		final-est (precision-est square precision)]
-  		(println final-est)))
+  		final-root-est (precision-est square precision)]
+  		(println final-root-est)))
