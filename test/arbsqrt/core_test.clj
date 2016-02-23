@@ -14,5 +14,5 @@
 
 (deftest core-fns
   (testing "Testing square estimate iteration."
-  	(is (= 4 (sqrt-est 12 6)))
+  	(is (= 4.0 (sqrt-est 12 6)))
   	(is (= 3.5 (sqrt-est 12 4)))))
