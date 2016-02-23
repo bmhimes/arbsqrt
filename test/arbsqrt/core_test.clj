@@ -4,7 +4,9 @@
 
 (deftest utility-fns
   (testing "Testing utility functions."
-  	(is (= (abs-pct-error 100 101) 0.01))))
+  	(is (= (abs-pct-error 100 101) 0.01))
+  	(is (= (abs-pct-error 50 100) 1.0))
+  	(is (= (abs-pct-error 100 50) 0.5))))
 
 (deftest core-fns
   (testing "Testing square estimate iteration."
