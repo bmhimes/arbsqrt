@@ -2,7 +2,7 @@
 
 (defn pct-error
 	[actual est]
-	(/ (- actual est) actual))
+	(double (/ (- actual est) actual)))
 
 (defn sqrt-est
 	[square old-est]
