@@ -1,4 +1,5 @@
-(ns arbsqrt.core)
+(ns arbsqrt.core
+	(:require [clojure.tools.cli :refer [parse-opts]]))
 
 (defn abs-pct-error
 	[actual est]
