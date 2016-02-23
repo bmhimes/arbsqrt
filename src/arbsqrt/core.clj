@@ -11,7 +11,7 @@
 	[square old-est]
 	(let [dividend (/ square old-est)
 		  new-est (/ (+ old-est dividend) 2)]
-		  new-est))
+		  (double new-est)))
 
 (defn precision-est
 	[square pct-precision]
