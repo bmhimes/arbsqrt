@@ -9,6 +9,12 @@
 	  :parse-fn #(Double/parseDouble %)
 	  :validate [#(< 0.0 % 100.0) "Must be a number between 0 and 1."]]])
 
+(defn abs
+	[num]
+	(if (> 0 num)
+		num
+		(* num -1)))
+
 (defn abs-pct-error
 	[actual est]
 	(let [diff (- actual est)
