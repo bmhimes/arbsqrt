@@ -1,6 +1,14 @@
 (ns arbsqrt.core
 	(:require [clojure.tools.cli :refer [parse-opts]]))
 
+(def cli-options
+	[["-s" "--square SQUARE" "Squared number for which root will be estimated."
+	  :parse-fn #(Double/parseDouble %)
+	  :validate [#(> % 0) "Must be a number greater than 0."]]
+	 ["-p" "--precision PRECISION" "Precision of root estimate, as a maximum percentage error of the estimated square."
+	  :parse-fn #(Double/parseDouble %)
+	  :validate [#(< 0.0 % 100.0) "Must be a number between 0 and 1."]]])
+
 (defn abs-pct-error
 	[actual est]
 	(let [diff (- actual est)
