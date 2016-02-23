@@ -30,7 +30,9 @@
   (testing "Testing precision scale functions."
   	(is (= 2.0 (calc-precision-scale 0.01)))
   	(is (= 3.0 (calc-precision-scale 0.005)))
-  	(is (= 3.0 (calc-precision-scale 0.001)))))
+  	(is (= 3.0 (calc-precision-scale 0.001))))
+  (testing "Ratio to Big Decimal conversion functions."
+  	(is (= 0.33M (ratio-to-big-dec (/ 1 3) 2)))))
 
 (deftest core-fns
   (testing "Testing square estimate iteration."

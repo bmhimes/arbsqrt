@@ -35,6 +35,13 @@
 			(format (clojure.string/join ["%1." sci-dec "e%%"]) scaled-pct)
 			(format "%2.2f%%" scaled-pct))))
 
+(defn ratio-to-big-dec
+	[src-ratio scale]
+	(let [src-num (bigdec (.numerator src-ratio))
+		  src-denom (bigdec (.denominator src-ratio))
+		  result (.divide src-num src-denom scale java.math.RoundingMode/HALF_UP)]
+		  result))
+
 (defn sqrt-est
 	[square old-est]
 	(let [dividend (/ square old-est)
