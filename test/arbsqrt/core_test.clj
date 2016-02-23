@@ -2,6 +2,6 @@
   (:require [clojure.test :refer :all]
             [arbsqrt.core :refer :all]))
 
-(deftest a-test
-  (testing "FIXME, I fail."
-    (is (= 0 1))))
+(deftest utility-fns
+  (testing "Testing utility functions."
+  	(is (= (pct-error 100 101) -0.01))))
