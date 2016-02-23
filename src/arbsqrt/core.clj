@@ -23,7 +23,6 @@
 				(recur (sqrt-est square new-est))))))
 
 (defn -main [& args]
-  (println "Hello, World!")
   (let [square 12
   		precision 0.01
   		final-root-est (precision-est square precision)
