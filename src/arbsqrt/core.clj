@@ -1,8 +1,8 @@
 (ns arbsqrt.core)
 
-(defn pct-error
+(defn abs-pct-error
 	[actual est]
-	(double (/ (- actual est) actual)))
+	(double (/ (Math/abs (- actual est)) actual)))
 
 (defn sqrt-est
 	[square old-est]
