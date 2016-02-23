@@ -11,7 +11,7 @@
 
 (defn abs
 	[num]
-	(if (> 0 num)
+	(if (> num 0)
 		num
 		(* num -1)))
 
