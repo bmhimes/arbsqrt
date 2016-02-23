@@ -1,5 +1,6 @@
 (ns arbsqrt.core
-	(:require [clojure.tools.cli :refer [parse-opts]]))
+	(:require [clojure.tools.cli :refer [parse-opts]]
+			  [clojure.math.numeric-tower :as math]))
 
 (def cli-options
 	[["-s" "--square SQUARE" "Squared number for which root will be estimated."
