@@ -18,7 +18,7 @@
 (defn abs-pct-error
 	[actual est]
 	(let [diff (- actual est)
-		  abs-diff (java.lang.Math/abs diff)
+		  abs-diff (abs diff)
 		  pct-diff (/ abs-diff actual)]
 		(double pct-diff)))
 
