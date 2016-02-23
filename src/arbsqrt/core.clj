@@ -23,6 +23,10 @@
 		  pct-diff (/ abs-diff actual)]
 		(double pct-diff)))
 
+(defn calc-precision-scale
+	[precision]
+	(math/ceil (abs (Math/log10 precision))))
+
 (defn fmt-pct
 	[pct & {:keys [sci-dec]
 		    :or {sci-dec 1}}]

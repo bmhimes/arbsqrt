@@ -26,7 +26,11 @@
   	(is (= "100.00%" (fmt-pct 1.0)))
   	(is (= "1.00%" (fmt-pct 0.01)))
   	(is (= "0.01%" (fmt-pct 0.0001)))
-  	(is (= "1.0e-03%" (fmt-pct 0.00001)))))
+  	(is (= "1.0e-03%" (fmt-pct 0.00001))))
+  (testing "Testing precision scale functions."
+  	(is (= 2.0 (calc-precision-scale 0.01)))
+  	(is (= 3.0 (calc-precision-scale 0.005)))
+  	(is (= 3.0 (calc-precision-scale 0.001)))))
 
 (deftest core-fns
   (testing "Testing square estimate iteration."
