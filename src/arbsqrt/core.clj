@@ -1,5 +1,9 @@
 (ns arbsqrt.core)
 
+(defn pct-error
+	[actual est]
+	(/ (- actual est) actual))
+
 (defn sqrt-est
 	[square old-est]
 	(let [dividend (/ square old-est)
