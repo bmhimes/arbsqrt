@@ -9,8 +9,8 @@
 			  cli-errors (:errors parsed-opts)
 			  parsed-square (:square (:options parsed-opts))
 			  parsed-precision (:precision (:options parsed-opts))]
-			  (is (= 12.0M parsed-square))
-			  (is (= 0.01M parsed-precision))
+			  (is (= 12.0 parsed-square))
+			  (is (= 0.01 parsed-precision))
 			  (is (= nil cli-errors)))))
 
 (deftest java-interop
@@ -19,9 +19,9 @@
 
 (deftest utility-fns
   (testing "Testing error functions."
-  	(is (= (abs-pct-error 100 101) 1/100))
-  	(is (= (abs-pct-error 50 100) 1))
-  	(is (= (abs-pct-error 100 50) 1/2)))
+  	(is (= (abs-pct-error 100.0 101.0) 0.01))
+  	(is (= (abs-pct-error 50.0 100.0) 1.0))
+  	(is (= (abs-pct-error 100.0 50.0) 0.5)))
   (testing "Testing formatting functions."
   	(is (= "100.00%" (fmt-pct 1.0)))
   	(is (= "1.00%" (fmt-pct 0.01)))
@@ -36,5 +36,5 @@
 
 (deftest core-fns
   (testing "Testing square estimate iteration."
-  	(is (= 4 (sqrt-est 12 6)))
-  	(is (= 7/2 (sqrt-est 12 4)))))
+  	(is (= 4.0 (sqrt-est 12.0 6.0)))
+  	(is (= 3.5 (sqrt-est 12.0 4.0)))))
