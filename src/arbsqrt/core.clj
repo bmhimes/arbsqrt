@@ -8,7 +8,7 @@
 	  :validate [#(> % 0) "Must be a number greater than 0."]]
 	 ["-p" "--precision PRECISION" "Precision of root estimate, as a maximum percentage error of the estimated square."
 	  :parse-fn #(Double/parseDouble %)
-	  :validate [#(< 0.0 % 100.0) "Must be a number between 0 and 1."]]])
+	  :validate [#(<= (math/expt 10 -13) % 100.0) "Must be a number between 10e-14 and 1."]]])
 
 (defn abs
 	[num]
