@@ -57,6 +57,7 @@
 (defn precision-est
 	"Estimates the square root of a number to the desired precision, as a percentage error in the square."
 	[square pct-precision]
+	; The initial root estimate is half of square.
 	(loop [new-est (sqrt-est square (/ square 2.0))]
 		(let [square-est (math/expt new-est 2.0)
 			  error (abs-pct-error square square-est)]
