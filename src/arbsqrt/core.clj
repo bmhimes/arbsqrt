@@ -45,12 +45,12 @@
 (defn sqrt-est
 	[square old-est]
 	(let [dividend (/ square old-est)
-		  new-est (/ (+ old-est dividend) 2)]
+		  new-est (/ (+ old-est dividend) 2.0)]
 		  new-est))
 
 (defn precision-est
 	[square pct-precision]
-	(loop [new-est (sqrt-est square (/ square 2))]
+	(loop [new-est (sqrt-est square (/ square 2.0))]
 		(let [square-est (* new-est new-est)
 			  error (abs-pct-error square square-est)]
 			  (if (<= error pct-precision)
