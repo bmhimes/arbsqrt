@@ -25,8 +25,8 @@
   "Returns the absolute percentage error."
   [actual est]
   (let [diff (- actual est)
-      abs-diff (abs diff)
-      pct-diff (/ abs-diff actual)]
+        abs-diff (abs diff)
+        pct-diff (/ abs-diff actual)]
     pct-diff))
 
 (defn calc-precision-scale
@@ -47,15 +47,15 @@
   "Converts ratios to Big Decimals based on scale."
   [src-ratio scale]
   (let [src-num (bigdec (.numerator src-ratio))
-      src-denom (bigdec (.denominator src-ratio))
-      result (.divide src-num src-denom scale java.math.RoundingMode/HALF_UP)]
+        src-denom (bigdec (.denominator src-ratio))
+        result (.divide src-num src-denom scale java.math.RoundingMode/HALF_UP)]
       result))
 
 (defn sqrt-est
   "Estimates a new square root based on the square and the prior root estimate."
   [square old-est]
   (let [dividend (/ square old-est)
-      new-est (/ (+ old-est dividend) 2.0)]
+        new-est (/ (+ old-est dividend) 2.0)]
       new-est))
 
 (defn precision-est
