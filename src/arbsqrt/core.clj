@@ -77,8 +77,8 @@
   		final-square-est (math/expt final-root-est 2.0)
   		square-error (abs-pct-error square final-square-est)]
   		(do 
-  			(println "Square: " square)
-  			(println "Precision: " (fmt-pct precision))
-  			(println "Final root estimate: " final-root-est)
-  			(println "Final square estimate: " final-square-est)
-  			(println "Error: " (fmt-pct square-error)))))
+  			(info "Square: " square)
+  			(info "Precision: " (fmt-pct precision))
+  			(info "Final root estimate: " final-root-est)
+  			(info "Final square estimate: " final-square-est)
+  			(info "Error: " (fmt-pct square-error)))))
