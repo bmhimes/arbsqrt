@@ -58,8 +58,9 @@
 				(recur (sqrt-est square new-est))))))
 
 (defn -main [& args]
-  (let [square 12
-  		precision 0.000000000000000001
+  (let [parsed-cli-opts (parse-opts args cli-options)
+  		square (:square (:options parsed-cli-opts))
+  		precision (:precision (:options parsed-cli-opts))
   		final-root-est (precision-est square precision)
   		final-square-est (* final-root-est final-root-est)
   		square-error (abs-pct-error square final-square-est)]
