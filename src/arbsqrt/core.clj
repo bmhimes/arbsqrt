@@ -11,12 +11,14 @@
 	  :validate [#(<= (math/expt 10 -13) % 100.0) "Must be a number between 10e-14 and 1."]]])
 
 (defn abs
+	"Returns the absolute value.  This function works with Big Decimals."
 	[num]
 	(if (> num 0)
 		num
 		(* num -1)))
 
 (defn abs-pct-error
+	"Returns the absolute percentage error."
 	[actual est]
 	(let [diff (- actual est)
 		  abs-diff (abs diff)
@@ -24,10 +26,12 @@
 		pct-diff))
 
 (defn calc-precision-scale
+	"Calculates the Big Decimal scale to use based on a desired precision."
 	[precision]
 	(math/ceil (abs (Math/log10 precision))))
 
 (defn fmt-pct
+	"Formats doubles as percentages for human consumption."
 	[pct & {:keys [sci-dec]
 		    :or {sci-dec 1}}]
 	(let [scaled-pct (* pct 100.0)]
@@ -36,6 +40,7 @@
 			(format "%2.2f%%" scaled-pct))))
 
 (defn ratio-to-big-dec
+	"Converts ratios to Big Decimals based on scale."
 	[src-ratio scale]
 	(let [src-num (bigdec (.numerator src-ratio))
 		  src-denom (bigdec (.denominator src-ratio))
@@ -43,12 +48,14 @@
 		  result))
 
 (defn sqrt-est
+	"Estimates a new square root based on the square and the prior root estimate."
 	[square old-est]
 	(let [dividend (/ square old-est)
 		  new-est (/ (+ old-est dividend) 2.0)]
 		  new-est))
 
 (defn precision-est
+	"Estimates the square root of a number to the desired precision, as a percentage error in the square."
 	[square pct-precision]
 	(loop [new-est (sqrt-est square (/ square 2.0))]
 		(let [square-est (* new-est new-est)
