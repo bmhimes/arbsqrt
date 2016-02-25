@@ -64,10 +64,14 @@
   ; The initial root estimate is half of square.
   (loop [new-est (sqrt-est square (/ square 2.0))]
     (let [square-est (math/expt new-est 2.0)
-        error (abs-pct-error square square-est)]
-        (if (<= error pct-precision)
-        new-est
-        (recur (sqrt-est square new-est))))))
+          error (abs-pct-error square square-est)]
+        (do 
+          (info "Root estimate: " new-est)
+          (info "Square estimate: " square-est)
+          (info "Error: " (fmt-pct error))
+          (if (<= error pct-precision)
+            new-est
+            (recur (sqrt-est square new-est)))))))
 
 (defn -main [& args]
   (let [parsed-cli-opts (parse-opts args cli-options)
@@ -82,4 +86,4 @@
               (do 
                 (info "Final root estimate: " final-root-est)
                 (info "Final square estimate: " final-square-est)
-                (info "Error: " (fmt-pct square-error)))))))
+                (info "Final error: " (fmt-pct square-error)))))))
